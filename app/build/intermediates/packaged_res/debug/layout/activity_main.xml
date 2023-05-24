@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                 
+                            
+                                                                           
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_800" android:tag="layout/activity_main_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/DESCRIPTION_IMAGE"
+            android:tag="binding_1"                   
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/ic_textinput_status_fail" />
+
+        <TextView
+            style="@style/kor_H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="nickname"                                   
+            android:textColor="@color/gray_600"
+            app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+            app:layout_constraintTop_toTopOf="@id/ivProfile"  android:tag="binding_2"/>
+
+        <ImageView
+            android:id="@+id/ivfollow"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_group_48px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivProfile"
+            app:tint="@color/gray_400" />
+
+        <TextView
+            android:id="@+id/tvFollowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:text="0"                                          
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/ivfollow"
+            app:layout_constraintEnd_toStartOf="@id/tvFollowersUnit"
+            app:layout_constraintStart_toEndOf="@id/ivfollow"
+            app:layout_constraintTop_toTopOf="@id/ivfollow"  android:tag="binding_3"/>
+
+        <TextView
+            android:id="@+id/tvFollowersUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text='followers'
+            android:textColor="@color/gray_400"
+            app:layout_constraintBottom_toBottomOf="@id/tvFollowers"
+            app:layout_constraintStart_toEndOf="@id/tvFollowers"
+            app:layout_constraintTop_toTopOf="@id/tvFollowers" />
+
+        <TextView
+            android:id="@+id/tvFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" · 0"                                                  
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/tvFollowersUnit"
+            app:layout_constraintStart_toEndOf="@id/tvFollowersUnit"
+            app:layout_constraintTop_toTopOf="@id/tvFollowersUnit"  android:tag="binding_4"/>
+
+        <TextView
+            android:id="@+id/tvFollowingUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text='following'
+            android:textColor="@color/gray_400"
+            app:layout_constraintBottom_toBottomOf="@id/tvFollowing"
+            app:layout_constraintStart_toEndOf="@id/tvFollowing"
+            app:layout_constraintTop_toTopOf="@id/tvFollowing" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRepositories"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            android:background="@color/gray_800"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivfollow"
+            tools:listitem="@layout/item_repository" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+         

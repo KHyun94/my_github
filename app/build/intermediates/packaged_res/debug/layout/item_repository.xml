@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                                            
+
+                        
+                               
+                                    
+
+                 
+                       
+                            
+
+                        
+                              
+                                                                  
+
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_800"
+        android:padding="16dp" android:tag="layout/item_repository_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"                   
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:tag="binding_1"/>
+<!--        <TextView-->
+<!--            android:id="@+id/tvRanking"-->
+<!--            style="@style/kor_H4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:minWidth="48dp"-->
+<!--            android:text="@{index.toString()}"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/gray_400"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="SmallSp"-->
+<!--            tools:text="1" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivThumbnail"-->
+<!--            android:layout_width="48dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:contentDescription="@string/DESCRIPTION_IMAGE"-->
+<!--            app:imageUrl="@{item.imageUrl}"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.5"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tvRanking"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:background="@drawable/ic_textinput_status_fail" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvTitle"-->
+<!--            style="@style/kor_H3"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginBottom="2dp"-->
+<!--            android:text="@{item.name}"-->
+<!--            android:textColor="@color/gray_800"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/tvAges"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/ivThumbnail"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:text="육육걸즈" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvAges"-->
+<!--            style="@style/kor_H5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="@drawable/border_all_fill_rectangle_4dp"-->
+<!--            android:paddingHorizontal="4dp"-->
+<!--            android:paddingVertical="2dp"-->
+<!--            android:text="@{item.groupAgesToString()}"-->
+<!--            android:textColor="#B0B1B3"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/ivThumbnail"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvTitle"-->
+<!--            tools:ignore="SmallSp"-->
+<!--            tools:text="10대 20대" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvStyle1"-->
+<!--            style="@style/kor_H5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="@drawable/border_all_fill_rectangle_4dp"-->
+<!--            app:backgroundTintWithHash="@{item.styles[0]}"-->
+<!--            android:paddingHorizontal="4dp"-->
+<!--            android:paddingVertical="2dp"-->
+<!--            android:text="@{item.styles[0]}"-->
+<!--            android:textColor="@color/gray_700"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tvAges"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvTitle"-->
+<!--            tools:ignore="SmallSp"-->
+<!--            tools:text="러블리" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvStyle2"-->
+<!--            style="@style/kor_H5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="@drawable/border_all_fill_rectangle_4dp"-->
+<!--            app:backgroundTintWithHash="@{item.styles[1]}"-->
+<!--            android:paddingHorizontal="4dp"-->
+<!--            android:paddingVertical="2dp"-->
+<!--            android:text="@{item.styles[1]}"-->
+<!--            android:textColor="@color/gray_700"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tvStyle1"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvTitle"-->
+<!--            tools:ignore="SmallSp"-->
+<!--            tools:text="페미닌" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+         

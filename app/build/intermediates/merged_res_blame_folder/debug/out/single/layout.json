@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-mergeDebugResources-47:/layout/activity_main.xml",
+        "source": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-mergeDebugResources-47:/layout/activity_login.xml",
+        "source": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-main-50:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.kh.my_github.app-mergeDebugResources-47:/layout/activity_main.xml",
+        "source": "com.kh.my_github.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-mergeDebugResources-47:/layout/item_category.xml",
+        "source": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-main-50:/layout/item_category.xml"
+    },
+    {
+        "merged": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-mergeDebugResources-47:/layout/fragment_category_select.xml",
+        "source": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-main-50:/layout/fragment_category_select.xml"
+    },
+    {
+        "merged": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-mergeDebugResources-47:/layout/item_shop_simple_info.xml",
+        "source": "/Users/parkkyunghyun/.gradle/daemon/7.5/com.kh.my_github.app-main-50:/layout/item_shop_simple_info.xml"
+    },
+    {
+        "merged": "com.kh.my_github.app-mergeDebugResources-47:/layout/item_repository.xml",
+        "source": "com.kh.my_github.app-main-50:/layout/item_repository.xml"
+    }
+]

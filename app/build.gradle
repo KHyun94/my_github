@@ -1,0 +1,127 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+
+apply from: '../dependencies.gradle'
+
+def keystorePropertiesFile = rootProject.file("app/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+
+    namespace 'com.kh.my_github'
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.kh.my_github"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "MAIN_URL", keystoreProperties["MAIN_URL"])
+        buildConfigField("String", "API_URL", keystoreProperties["API_URL"])
+        buildConfigField("String", "CLIENT_ID", keystoreProperties["CLIENT_ID"])
+        buildConfigField("String", "CLIENT_PASSWORD", keystoreProperties["CLIENT_PASSWORD"])
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.browser:browser:1.4.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Startup
+    implementation "androidx.startup:startup-runtime:$versions.startupVersion"
+
+    implementation 'androidx.activity:activity-ktx:1.7.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.7'
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycleExtensionsVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycleJava8Version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutinesVersion"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$versions.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$versions.glideVersion"
+
+    // page
+    implementation "androidx.paging:paging-common-ktx:$versions.pageVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$versions.pageVersion"
+
+    // Koin
+//    implementation "io.insert-koin:koin-core:$versions.koinVersion"
+//    implementation "io.insert-koin:koin-android:$versions.koinVersion"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$versions.hiltVersion"
+
+    // Retrofit
+    implementation "com.github.skydoves:sandwich:$versions.sandwichVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttpVersion"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$versions.gsonVersion"
+
+    // logging
+    implementation "com.orhanobut:logger:2.2.0"
+
+//    // Logging Interceptor
+//    implementation("com.github.ihsanbal:LoggingInterceptor:3.1.0") {
+//        exclude group: 'org.json', module: 'json'
+//    }
+
+    // Moshi
+    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+
+    // Data Store
+    implementation "androidx.datastore:datastore-preferences:$versions.dataStoreVersion"
+    implementation "androidx.datastore:datastore-preferences-core:$versions.dataStoreVersion"
+
+
+}
