@@ -51,14 +51,15 @@ class MainActivity : AppCompatActivity() {
             addItemDecoration(itemDecoration)
         }
         lifecycleScope.launch {
-            viewModel.repos.collectLatest {
-                Log.d("TAG", "Repos collect")
+            Log.d("TAG", "View Repos Collect Ready")
+            viewModel.repos.collect {
                 pagingAdapter.submitData(it)
-            }
-        }
+                Log.d(
+                    "TAG",
+                    "View Repos Collecting... ${it.toString()} ${pagingAdapter.itemCount}개"
+                )
 
-        lifecycleScope.launch {
-            viewModel.getMyRepos(viewModel.user.value?.reposUrl ?: "https://api.github.com/users/KHyun94/repos")
+            }
         }
 
         viewModel.nav.observe(this) {

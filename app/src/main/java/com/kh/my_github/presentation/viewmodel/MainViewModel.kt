@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.kh.my_github.data.model.GitRepository
@@ -17,7 +18,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val gitHubApiRepo: GitHubApiRepository, private val loginRepo: LoginRepository) :
+class MainViewModel @Inject constructor(
+    private val gitHubApiRepo: GitHubApiRepository,
+    private val loginRepo: LoginRepository
+) :
     ViewModel() {
 
     private val _user = MutableLiveData<User>()
@@ -31,17 +35,20 @@ class MainViewModel @Inject constructor(private val gitHubApiRepo: GitHubApiRepo
     val nav: LiveData<String> get() = _nav
 
     init {
+        Log.d("TAG", "ViewModel init")
         viewModelScope.launch {
             gitHubApiRepo.getUser({}, {}, {
+                Log.d("TAG", "ViewModel Login failed")
                 _nav.postValue("LOGIN")
             }).collect { user ->
-                Log.d("TAG", "USER -> ${user.toString()}")
+                Log.d("TAG", "ViewModel Success Login -> ${user.toString()}")
                 _user.value = user
+                getMyRepos(user.reposUrl)
             }
         }
     }
 
-    fun login(code: String)  = viewModelScope.launch{
+    fun login(code: String) = viewModelScope.launch {
 
         loginRepo.login(code, {
             Log.d("TAG", " ONSTART => ")
@@ -54,20 +61,21 @@ class MainViewModel @Inject constructor(private val gitHubApiRepo: GitHubApiRepo
                 }).collect { user ->
                     Log.d("TAG", "USER -> ${user.toString()}")
                     _user.value = user
+                    getMyRepos(user.reposUrl)
                 }
             }
         }
     }
 
-    fun getMyRepos(url: String): Flow<PagingData<GitRepository>> = flow {
-        try {
-            Log.d("TAG", "USER 2 => ${user.toString()}")
-            emitAll(gitHubApiRepo.getMyReposByPage(url).flow.cachedIn(viewModelScope))
-        } catch (e: Exception) {
-            // Handle error
-            e.printStackTrace()
+    fun getMyRepos(url: String) = viewModelScope.launch {
+        Log.d("TAG", "ViewModel Get MyRepo")
+        gitHubApiRepo.getMyReposByPage(url).flow.cachedIn(viewModelScope).collect {
+            Log.d("TAG", "ViewModel Get MyRepo Collecting...")
+            _repos.value = it
         }
+        Log.d("TAG", "ViewModel Get MyRepo Set Completed")
     }
+
 }
 
 

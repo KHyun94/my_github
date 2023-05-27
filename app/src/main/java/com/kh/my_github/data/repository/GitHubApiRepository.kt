@@ -36,7 +36,7 @@ class GitHubApiRepository @Inject constructor(
 
     fun getMyReposByPage(url: String): Pager<Int, GitRepository> {
         return Pager(PagingConfig(pageSize = 10)) {
-            repoPagingSource.setUrl(url)
+            return@Pager repoPagingSource.setUrl(url)
         }
     }
 }

@@ -15,6 +15,7 @@ class RepoPagingSource @Inject constructor(
 
     fun setUrl(url: String): RepoPagingSource {
         this.url = url
+        Log.d("TAG", "setUrl($url)")
         return this
     }
 
@@ -24,8 +25,18 @@ class RepoPagingSource @Inject constructor(
 
             val result = repoService.getRepos(url, next, 10)
 
-            if (result.isSuccessful || result.body()?.isNotEmpty() == true) {
-                LoadResult.Page(
+            Log.d("TAG", "next $next")
+
+
+            val list = result.body()?: emptyList()
+
+            Log.d("TAG", "list ${list.joinToString(", ")}")
+
+            if (result.isSuccessful || list.isNotEmpty()) {
+
+                Log.d("TAG", "next $next")
+
+                return LoadResult.Page(
                     data = result.body() ?: emptyList(),
                     prevKey = if (next == 0) null else next - 1,
                     nextKey = next + 1
