@@ -13,6 +13,8 @@ class RepoPagingSource @Inject constructor(
 
     private var url: String = ""
 
+    val REPO_PER_PAGE = 10
+
     fun setUrl(url: String): RepoPagingSource {
         this.url = url
         Log.d("TAG", "setUrl($url)")
@@ -20,33 +22,25 @@ class RepoPagingSource @Inject constructor(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GitRepository> {
-        return try {
+        try {
             val next = params.key ?: 0
 
-            val result = repoService.getRepos(url, next, 10)
+            val result = repoService.getRepos(url, next, REPO_PER_PAGE)
 
-            Log.d("TAG", "next $next")
+            val list = result.body() ?: emptyList()
 
-
-            val list = result.body()?: emptyList()
-
-            Log.d("TAG", "list ${list.joinToString(", ")}")
-
-            if (result.isSuccessful || list.isNotEmpty()) {
-
-                Log.d("TAG", "next $next")
-
-                return LoadResult.Page(
-                    data = result.body() ?: emptyList(),
-                    prevKey = if (next == 0) null else next - 1,
-                    nextKey = next + 1
-                )
+            if (!result.isSuccessful || list.isEmpty()) {
+                return LoadResult.Error(Exception(result.message()))
             }
 
-            LoadResult.Error(Exception(result.message()))
+            return LoadResult.Page(
+                data = list,
+                prevKey = if (next == 0) null else next - 1,
+                nextKey = next + 1
+            )
         } catch (e: Exception) {
             e.printStackTrace()
-            LoadResult.Error(e)
+            return LoadResult.Error(e)
         }
     }
 
@@ -56,4 +50,8 @@ class RepoPagingSource @Inject constructor(
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
         }
     }
+}
+
+fun main() {
+
 }
